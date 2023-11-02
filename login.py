@@ -2,10 +2,10 @@ import time
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
-sophos_username = os.getenv('username')
-sophos_password = os.getenv('password')
-url = os.getenv('url')
+load_dotenv('.env')
+sophos_username = os.getenv('sophos_username')
+sophos_password = os.getenv('sophos_password')
+url = os.getenv('login_url')
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -35,6 +35,7 @@ login_button_xpath = f"/html/body/font/font/font/font/div/div[1]/div[2]/div[3]/a
 login_button_element = driver.find_element("xpath", login_button_xpath)
 login_button_element.click()
 
+# Add a delay to see if the credentials are entered correctly
 time.sleep(1)
 
 driver.quit()
